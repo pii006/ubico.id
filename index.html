@@ -3,1118 +3,998 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UBICO — Katalog Atribut Mahasiswa</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Skema Harga — Bundling Vest & Lanyard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0a0a;
-  --bg2: #111111;
-  --bg3: #1a1a1a;
-  --bg4: #232323;
-  --border: #2a2a2a;
-  --border2: #333333;
-  --text: #f0f0f0;
-  --text2: #a0a0a0;
-  --text3: #666666;
-  --accent: #e8e0d0;
-  --accent2: #c8bfaf;
-  --green: #4ade80;
-  --green-dim: #1a3a25;
-  --white: #ffffff;
-  --radius: 12px;
-  --radius-sm: 6px;
+  --bg:       #0c0b09;
+  --bg2:      #141210;
+  --bg3:      #1c1a17;
+  --bg4:      #242118;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.13);
+  --text:     #edeae3;
+  --text2:    #9a9489;
+  --text3:    #5f5c55;
+  --gold:     #c9a86c;
+  --gold2:    #e8ca8a;
+  --teal:     #4ecba8;
+  --teal-dim: rgba(78,203,168,0.10);
+  --blue:     #6ba3d6;
+  --blue-dim: rgba(107,163,214,0.10);
+  --amber:    #e8a84a;
+  --amber-dim:rgba(232,168,74,0.10);
+  --green:    #6bc87a;
+  --green-dim:rgba(107,200,122,0.09);
+  --red:      #e06b6b;
+  --r: 10px;
+  --r-sm: 7px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Syne',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+  /* subtle grain overlay */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(12,11,9,0.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 clamp(1rem,4vw,2.5rem);
+  display:flex;align-items:center;justify-content:space-between;
+  height:54px;
+}
+.nav-brand{
+  font-family:'Playfair Display',serif;
+  font-size:15px;color:var(--gold);
+  letter-spacing:.02em;
+}
+.nav-links{display:flex;gap:2px;}
+.nav-links a{
+  font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--text3);text-decoration:none;
+  padding:5px 13px;border-radius:20px;
+  transition:color .2s,background .2s;
+}
+.nav-links a:hover{color:var(--text);background:var(--bg3);}
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 300;
-  min-height: 100vh;
-  overflow-x: hidden;
+/* ── HERO ── */
+.hero{
+  padding:clamp(60px,10vw,100px) clamp(1rem,4vw,2.5rem) 50px;
+  max-width:860px;margin:0 auto;
+  text-align:center;
 }
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(201,168,108,0.25);
+  padding:5px 16px;border-radius:20px;margin-bottom:28px;
+}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,6vw,58px);
+  line-height:1.12;color:var(--text);
+  margin-bottom:18px;
+}
+.hero h1 em{font-style:italic;color:var(--gold2);}
+.hero p{font-size:15px;color:var(--text2);max-width:500px;margin:0 auto 48px;line-height:1.7;}
 
-/* ---- NOISE OVERLAY ---- */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 200px 200px;
-  opacity: 0.4;
+/* ── TIER STRIP ── */
+.tier-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  max-width:860px;margin:0 auto 70px;
+  padding:0 clamp(1rem,4vw,2.5rem);
 }
+@media(max-width:680px){.tier-strip{grid-template-columns:1fr 1fr;}}
+.tier-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:20px 16px 18px;
+  cursor:pointer;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.tier-card::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+}
+.tier-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4);}
+.tier-card.t1::after{background:linear-gradient(90deg,var(--text3),transparent);}
+.tier-card.t2::after{background:linear-gradient(90deg,var(--blue),transparent);}
+.tier-card.t3::after{background:linear-gradient(90deg,var(--amber),transparent);}
+.tier-card.t4::after{background:linear-gradient(90deg,var(--teal),transparent);}
+.tier-card.t4{border-color:rgba(78,203,168,0.22);}
+.tier-card.t4:hover{border-color:var(--teal);}
+.best-badge{
+  position:absolute;top:11px;right:11px;
+  font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal);background:var(--teal-dim);
+  padding:3px 8px;border-radius:10px;border:1px solid rgba(78,203,168,.2);
+}
+.tn{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
+.tier-card.t4 .tn{color:var(--teal);}
+.tier-card.t2 .tn{color:var(--blue);}
+.tier-card.t3 .tn{color:var(--amber);}
+.tname{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.tcond{font-size:10px;color:var(--text3);margin-bottom:14px;line-height:1.5;}
+.tprice{
+  font-family:'Playfair Display',serif;
+  font-size:26px;font-weight:700;color:var(--text);
+  line-height:1;
+}
+.tprice sub{font-size:11px;font-family:'Syne',sans-serif;color:var(--text3);font-weight:400;display:block;margin-top:5px;line-height:1.3;}
 
-/* ---- SCROLLBAR ---- */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+/* ── SECTION ── */
+section{
+  max-width:860px;margin:0 auto;
+  padding:0 clamp(1rem,4vw,2.5rem) 72px;
+  scroll-margin-top:70px;
+}
+.sec-head{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  margin-bottom:24px;padding-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+.sec-head h2{
+  font-family:'Playfair Display',serif;
+  font-size:24px;color:var(--text);
+}
+.sec-head p{font-size:12px;color:var(--text3);}
 
-/* ---- HEADER ---- */
-.header {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(10,10,10,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 0.5px solid var(--border);
-  padding: 0 2rem;
-}
-.header-inner {
-  max-width: 1280px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 60px;
-}
-.logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 22px; letter-spacing: -0.02em;
-  color: var(--white);
-}
-.logo span { color: var(--text3); }
-.header-meta {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; color: var(--text3);
-  letter-spacing: 0.05em;
-}
-.header-badge {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px; color: var(--text2);
-  border: 0.5px solid var(--border2);
-  padding: 3px 10px; border-radius: 99px;
-}
+/* ── ITEM CARDS (replacing flat table) ── */
+.item-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+@media(max-width:580px){.item-grid{grid-template-columns:1fr;}}
 
-/* ---- HERO ---- */
-.hero {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto;
-  padding: 5rem 2rem 3rem;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+.item-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  overflow:hidden;
+  transition:border-color .2s;
 }
-.hero-eyebrow {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; color: var(--text3);
-  letter-spacing: 0.15em; text-transform: uppercase;
-  margin-bottom: 1.2rem;
-  display: flex; align-items: center; gap: 10px;
+.item-card:hover{border-color:var(--border2);}
+.item-card-head{
+  padding:16px 18px 14px;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+  cursor:pointer;
+  user-select:none;
 }
-.hero-eyebrow::before {
-  content: ''; display: block; width: 30px; height: 0.5px; background: var(--text3);
+.item-card-head:hover .iname{color:var(--gold2);}
+.iname{font-size:14px;font-weight:700;color:var(--text);transition:color .2s;}
+.isub{font-size:11px;color:var(--text3);margin-top:2px;}
+.item-hpp-pill{
+  font-size:11px;font-weight:600;
+  background:var(--bg4);border:1px solid var(--border);
+  color:var(--text2);padding:3px 10px;border-radius:20px;
+  white-space:nowrap;flex-shrink:0;
 }
-.hero-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.0; letter-spacing: -0.02em;
-  color: var(--white); margin-bottom: 1.5rem;
+.item-acc-btn{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--bg3);border:1px solid var(--border);
+  color:var(--text3);font-size:13px;line-height:1;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;margin-top:2px;
 }
-.hero-title em { font-style: italic; color: var(--accent2); }
-.hero-desc {
-  font-size: 15px; color: var(--text2); line-height: 1.7;
-  max-width: 420px; margin-bottom: 2rem;
+.item-card.open .item-acc-btn{
+  background:var(--gold);border-color:var(--gold);color:var(--bg);transform:rotate(45deg);
 }
-.hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-primary {
-  background: var(--white); color: var(--bg);
-  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600;
-  padding: 10px 24px; border-radius: 99px; border: none; cursor: pointer;
-  letter-spacing: 0.02em; transition: all 0.2s;
+.item-body{
+  display:none;
+  padding:0 18px 16px;
+  border-top:1px solid var(--border);
+  animation:slideDown .22s ease both;
 }
-.btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
-.btn-ghost {
-  background: transparent; color: var(--text2);
-  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 400;
-  padding: 10px 24px; border-radius: 99px;
-  border: 0.5px solid var(--border2); cursor: pointer;
-  transition: all 0.2s;
-}
-.btn-ghost:hover { color: var(--text); border-color: var(--text3); }
+@keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.item-card.open .item-body{display:block;}
 
-.hero-right {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+/* HPP breakdown inside item card */
+.hpp-block{
+  margin-top:14px;
+  background:var(--bg3);border-radius:var(--r-sm);
+  padding:12px 14px;
+  font-size:12px;
 }
-.hero-stat {
-  background: var(--bg2); border: 0.5px solid var(--border);
-  border-radius: var(--radius); padding: 20px;
+.hpp-block-title{
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:10px;
 }
-.hero-stat:first-child { grid-column: span 2; }
-.stat-num {
-  font-family: 'DM Serif Display', serif;
-  font-size: 38px; color: var(--white);
-  letter-spacing: -0.02em; margin-bottom: 4px;
+.hpp-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:5px 0;border-bottom:1px dashed var(--border);
 }
-.stat-label { font-size: 12px; color: var(--text3); font-weight: 400; }
-.tier-mini { display: flex; gap: 6px; margin-top: 14px; }
-.tier-chip {
-  flex: 1; background: var(--bg3); border-radius: var(--radius-sm);
-  padding: 8px 10px; text-align: center;
-  border: 0.5px solid var(--border);
+.hpp-row:last-child{border-bottom:none;}
+.hpp-row span{color:var(--text2);}
+.hpp-row b{color:var(--text);font-variant-numeric:tabular-nums;}
+.hpp-total-row{
+  display:flex;justify-content:space-between;
+  padding:9px 0 5px;
+  border-top:1px solid var(--border2);
+  margin-top:4px;
 }
-.tier-chip .qty { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text2); }
-.tier-chip .pct { font-size: 16px; font-weight: 600; color: var(--white); margin-top: 2px; }
-.tc1 { border-left: 2px solid #666; }
-.tc2 { border-left: 2px solid #4ade80; }
-.tc3 { border-left: 2px solid #60a5fa; }
+.hpp-total-row span{font-size:12px;font-weight:700;color:var(--text2);}
+.hpp-total-row b{font-size:15px;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;}
 
-/* ---- TIER STRIP ---- */
-.tier-strip {
-  position: relative; z-index: 1;
-  border-top: 0.5px solid var(--border);
-  border-bottom: 0.5px solid var(--border);
-  background: var(--bg2);
+/* Tier price rows inside item */
+.tier-rows{margin-top:14px;}
+.tier-row-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 12px;border-radius:var(--r-sm);
+  margin-bottom:6px;font-size:12px;
+  background:var(--bg3);
 }
-.tier-strip-inner {
-  max-width: 1280px; margin: 0 auto; padding: 0 2rem;
-  display: grid; grid-template-columns: repeat(3, 1fr);
-}
-.ts-item {
-  padding: 18px 0; display: flex; align-items: center; gap: 14px;
-  border-right: 0.5px solid var(--border);
-}
-.ts-item:last-child { border-right: none; padding-left: 2rem; }
-.ts-item:nth-child(2) { padding-left: 2rem; }
-.ts-dot { width: 8px; height: 8px; border-radius: 99px; flex-shrink: 0; }
-.ts-item:nth-child(1) .ts-dot { background: #888; }
-.ts-item:nth-child(2) .ts-dot { background: #4ade80; }
-.ts-item:nth-child(3) .ts-dot { background: #60a5fa; }
-.ts-label { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
-.ts-val { font-size: 14px; color: var(--text); font-weight: 500; }
+.tier-row-item:last-child{margin-bottom:0;}
+.tier-row-item .tr-label{color:var(--text2);display:flex;align-items:center;gap:8px;}
+.tier-row-item .tr-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.tier-row-item .tr-price{font-weight:700;font-variant-numeric:tabular-nums;color:var(--text);}
+.tier-row-item .tr-markup{font-size:10px;color:var(--text3);margin-top:1px;}
+.tier-row-item.highlighted{background:var(--teal-dim);border:1px solid rgba(78,203,168,.15);}
+.tier-row-item.highlighted .tr-price{color:var(--teal);}
+.tier-row-item.special-flat{background:var(--amber-dim);border:1px solid rgba(232,168,74,.15);}
+.tier-row-item.special-flat .tr-price{color:var(--amber);}
 
-/* ---- MAIN SECTION ---- */
-.main {
-  position: relative; z-index: 1;
-  max-width: 1280px; margin: 0 auto; padding: 3rem 2rem;
+/* note box */
+.note{
+  border-left:2px solid var(--border2);
+  padding:12px 16px;
+  font-size:13px;color:var(--text2);line-height:1.65;
+  background:var(--bg2);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:16px 0;
 }
-.section-header {
-  display: flex; align-items: baseline; justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-.section-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 28px; letter-spacing: -0.02em; color: var(--white);
-}
-.section-sub { font-size: 13px; color: var(--text3); font-family: 'DM Mono', monospace; }
+.note.teal{border-left-color:var(--teal);}
+.note.amber{border-left-color:var(--amber);}
+.note b{color:var(--text);font-weight:600;}
 
-/* ---- FILTERS ---- */
-.filters {
-  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 2rem;
-  padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border);
+/* badge */
+.badge{
+  display:inline-block;font-size:9px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:3px 9px;border-radius:20px;white-space:nowrap;
 }
-.filter-pill {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 6px 16px; border-radius: 99px;
-  border: 0.5px solid var(--border2);
-  background: transparent; color: var(--text3);
-  cursor: pointer; transition: all 0.15s;
-}
-.filter-pill:hover { color: var(--text2); border-color: var(--text3); }
-.filter-pill.active {
-  background: var(--white); color: var(--bg);
-  border-color: var(--white); font-weight: 500;
-}
+.b-gray{background:var(--bg4);color:var(--text3);border:1px solid var(--border);}
+.b-blue{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(107,163,214,.2);}
+.b-amber{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(232,168,74,.2);}
+.b-teal{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(78,203,168,.2);}
 
-/* ---- CATALOG GRID ---- */
-.catalog-group-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; color: var(--text3); letter-spacing: 0.12em;
-  text-transform: uppercase; margin: 2.5rem 0 1.2rem;
-  display: flex; align-items: center; gap: 12px;
+/* ── BUNDLE CARDS ── */
+.bundle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;}
+@media(max-width:580px){.bundle-grid{grid-template-columns:1fr;}}
+.bundle-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
+  transition:border-color .2s;
 }
-.catalog-group-title::after {
-  content: ''; flex: 1; height: 0.5px; background: var(--border);
+.bundle-card:hover{border-color:var(--border2);}
+.bc-head{
+  padding:16px 18px 0;
+  cursor:pointer;user-select:none;
+  display:flex;justify-content:space-between;align-items:flex-start;
 }
+.bc-title{font-size:13px;font-weight:700;color:var(--text);margin:10px 0 4px;}
+.bc-items{font-size:11px;color:var(--text3);margin-bottom:14px;line-height:1.5;padding:0 18px;}
+.bc-prices{padding:0 18px 16px;}
+.bc-price-row{
+  display:flex;justify-content:space-between;
+  font-size:12px;color:var(--text3);margin-bottom:7px;
+}
+.bc-price-row b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums;}
+.bc-price-row.hl b{color:var(--teal);}
+.bc-note{
+  font-size:10px;color:var(--text3);
+  margin-top:9px;padding-top:9px;border-top:1px solid var(--border);
+}
+/* bundle detail accordion */
+.bc-acc-btn{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--bg3);border:1px solid var(--border);
+  color:var(--text3);font-size:13px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;flex-shrink:0;
+}
+.bundle-card.open .bc-acc-btn{background:var(--gold);border-color:var(--gold);color:var(--bg);transform:rotate(45deg);}
+.bc-detail{
+  display:none;
+  margin:0 18px 16px;
+  border-top:1px solid var(--border);
+  padding-top:14px;
+  animation:slideDown .22s ease both;
+}
+.bundle-card.open .bc-detail{display:block;}
+.bc-detail-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;}
+.bc-comp-row{
+  display:flex;justify-content:space-between;
+  font-size:12px;padding:5px 0;border-bottom:1px dashed var(--border);
+  color:var(--text2);
+}
+.bc-comp-row:last-child{border-bottom:none;}
+.bc-comp-row b{color:var(--text);font-variant-numeric:tabular-nums;}
+.bc-total-row{
+  display:flex;justify-content:space-between;
+  margin-top:8px;padding-top:8px;
+  border-top:1px solid var(--border2);
+}
+.bc-total-row span{font-size:11px;font-weight:700;color:var(--text2);}
+.bc-total-row b{font-size:14px;font-weight:700;color:var(--gold2);font-variant-numeric:tabular-nums;}
 
-.catalog-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1px; background: var(--border);
-  border: 0.5px solid var(--border); border-radius: var(--radius);
-  overflow: hidden;
+/* ── KALKULATOR ── */
+.calc-wrap{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;
 }
-.catalog-grid > :first-child { border-radius: var(--radius) 0 0 0; }
-.catalog-grid > :last-child { border-radius: 0 0 var(--radius) var(--radius); }
+.calc-header{
+  padding:20px 24px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:14px;
+}
+.calc-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--teal-dim);border:1px solid rgba(78,203,168,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.calc-header h3{font-size:15px;font-weight:700;color:var(--text);}
+.calc-header p{font-size:11px;color:var(--text3);margin-top:2px;}
+.calc-body{padding:20px 24px;}
+.calc-row{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:14px 16px;
+  border:1px solid var(--border);border-radius:var(--r-sm);
+  background:var(--bg3);margin-bottom:10px;
+  transition:border-color .2s;
+}
+.calc-row:focus-within{border-color:var(--border2);}
+.calc-info{flex:1;min-width:150px;}
+.calc-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.calc-desc{font-size:10px;color:var(--text3);}
+.calc-prices{
+  display:flex;gap:16px;font-size:11px;color:var(--text3);
+}
+.calc-prices span{display:flex;flex-direction:column;}
+.calc-prices b{font-size:12px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;}
+.counter{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.cnt-btn{
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid var(--border2);background:var(--bg2);
+  color:var(--text);font-size:18px;line-height:1;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .15s;font-family:inherit;
+}
+.cnt-btn:hover{background:var(--bg4);border-color:var(--gold);color:var(--gold);}
+.cnt-val{font-size:18px;font-weight:700;min-width:28px;text-align:center;color:var(--text);}
 
-/* ---- PRODUCT CARD ---- */
-.prod-card {
-  background: var(--bg2);
-  transition: background 0.15s;
-  position: relative; overflow: hidden;
+/* Result */
+.result-panel{
+  margin-top:18px;border-radius:var(--r);
+  border:1px solid var(--border);overflow:hidden;
+  transition:border-color .3s;
 }
-.prod-card:hover { background: var(--bg3); }
-.prod-card.featured { background: var(--bg3); }
-.featured-ribbon {
-  position: absolute; top: 16px; right: -8px;
-  background: var(--white); color: var(--bg);
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 3px 16px 3px 10px; border-radius: 99px 0 0 99px;
-  display: none;
+.result-panel.t4{border-color:rgba(78,203,168,.3);}
+.result-panel.t2{border-color:rgba(107,163,214,.25);}
+.result-top{
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  flex-wrap:wrap;gap:10px;
 }
-.prod-card.featured .featured-ribbon { display: block; }
+.result-tier-label{font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.rtd{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.result-total-label{font-size:10px;color:var(--text3);}
+.result-total-num{
+  font-family:'Playfair Display',serif;
+  font-size:30px;color:var(--text);
+}
+.result-body{padding:16px 20px;}
+.result-line{
+  display:flex;justify-content:space-between;
+  font-size:12px;color:var(--text2);
+  padding:5px 0;border-bottom:1px dashed var(--border);
+}
+.result-line:last-child{border-bottom:none;}
+.result-line b{color:var(--text);font-variant-numeric:tabular-nums;font-weight:500;}
+.moq-bar-wrap{margin-top:14px;}
+.moq-bar-label{
+  display:flex;justify-content:space-between;
+  font-size:10px;color:var(--text3);margin-bottom:5px;
+}
+.moq-bar-track{height:4px;background:var(--bg4);border-radius:2px;overflow:hidden;}
+.moq-bar-fill{
+  height:100%;border-radius:2px;background:var(--teal);
+  transition:width .4s cubic-bezier(.4,0,.2,1);
+}
+.moq-bar-fill.warn{background:var(--amber);}
+.moq-banner{
+  margin-top:14px;padding:12px 14px;border-radius:var(--r-sm);
+  font-size:12px;line-height:1.5;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.moq-banner.warn{background:rgba(232,168,74,.08);border:1px solid rgba(232,168,74,.18);color:var(--amber);}
+.moq-banner.ok{background:var(--green-dim);border:1px solid rgba(107,200,122,.18);color:var(--green);}
+.moq-banner .ico{font-size:15px;flex-shrink:0;margin-top:1px;}
+.moq-msg{color:var(--text2);}
+.moq-msg b{color:var(--text);}
+.upgrade-toggle{
+  font-size:11px;color:var(--blue);background:none;border:none;
+  cursor:pointer;padding:8px 0 0;display:block;font-family:inherit;
+  text-decoration:underline;text-underline-offset:2px;
+}
+.upgrade-detail{
+  margin-top:8px;padding:12px 14px;
+  background:var(--bg);border-radius:var(--r-sm);
+  font-size:11px;color:var(--text3);line-height:1.8;
+  display:none;
+}
+.upgrade-detail.open{display:block;}
 
-.prod-img-wrap {
-  position: relative; overflow: hidden; background: var(--bg3);
-  aspect-ratio: 4/3;
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);
+  padding:28px 2rem;
+  text-align:center;font-size:11px;color:var(--text3);
+  letter-spacing:.03em;
 }
-.prod-img-placeholder {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 10px; color: var(--text3);
-  background: linear-gradient(135deg, var(--bg3) 0%, var(--bg4) 100%);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.prod-card:hover .prod-img-placeholder { transform: scale(1.03); }
-.prod-img-placeholder svg { opacity: 0.3; }
-.prod-img-placeholder span {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  color: var(--text3); letter-spacing: 0.1em;
-}
-.img-pattern {
-  position: absolute; inset: 0; opacity: 0.04;
-  background-image: repeating-linear-gradient(
-    45deg, var(--white) 0, var(--white) 1px, transparent 0, transparent 50%
-  );
-  background-size: 12px 12px;
-}
-.img-badge {
-  position: absolute; bottom: 10px; left: 10px;
-  background: rgba(10,10,10,0.85); backdrop-filter: blur(8px);
-  border: 0.5px solid var(--border2); border-radius: 99px;
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  color: var(--text2); padding: 3px 10px;
-}
+footer span{color:var(--gold);}
 
-.prod-body { padding: 18px 20px 16px; }
-.prod-name { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 4px; line-height: 1.4; }
-.prod-sub { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); margin-bottom: 12px; }
-.prod-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
-.prod-tag {
-  font-size: 10px; padding: 2px 8px; border-radius: 4px;
-  background: var(--bg4); color: var(--text3);
-  border: 0.5px solid var(--border);
-  font-family: 'DM Mono', monospace; letter-spacing: 0.04em;
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
 }
-
-/* ---- PRICE BUTTONS ---- */
-.price-tiers { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
-.price-btn {
-  background: var(--bg4); border: 0.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 10px 8px; cursor: pointer; text-align: center;
-  transition: all 0.15s; position: relative; overflow: hidden;
-}
-.price-btn::before {
-  content: ''; position: absolute; inset: 0;
-  background: var(--white); opacity: 0; transition: opacity 0.15s;
-}
-.price-btn:hover::before { opacity: 0.04; }
-.price-btn:active { transform: scale(0.97); }
-.price-btn.t1 { border-top: 2px solid #555; }
-.price-btn.t2 { border-top: 2px solid #4ade80; }
-.price-btn.t3 { border-top: 2px solid #60a5fa; }
-.pb-tier { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
-.t1 .pb-tier { color: #888; }
-.t2 .pb-tier { color: #4ade80; }
-.t3 .pb-tier { color: #60a5fa; }
-.pb-qty { font-size: 9px; color: var(--text3); margin-bottom: 6px; font-family: 'DM Mono', monospace; }
-.pb-price { font-size: 13px; font-weight: 600; color: var(--white); letter-spacing: -0.01em; }
-.pb-hint {
-  font-size: 9px; color: var(--text3); margin-top: 2px;
-  font-family: 'DM Mono', monospace;
-}
-.pb-hint span { color: #4ade80; }
-
-/* ---- MODAL OVERLAY ---- */
-.modal-overlay {
-  position: fixed; inset: 0; z-index: 1000;
-  background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
-  display: flex; align-items: flex-end; justify-content: center;
-  padding: 0; opacity: 0; pointer-events: none;
-  transition: opacity 0.25s;
-}
-.modal-overlay.open { opacity: 1; pointer-events: all; }
-.modal {
-  background: var(--bg2); border: 0.5px solid var(--border2);
-  border-radius: 20px 20px 0 0; width: 100%; max-width: 520px;
-  transform: translateY(40px); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
-  max-height: 92vh; overflow-y: auto;
-}
-.modal-overlay.open .modal { transform: translateY(0); }
-
-.modal-handle {
-  width: 36px; height: 3px; background: var(--border2);
-  border-radius: 99px; margin: 12px auto 0;
-}
-.modal-header {
-  padding: 16px 24px 14px;
-  border-bottom: 0.5px solid var(--border);
-}
-.modal-eyebrow {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.modal-title { font-size: 17px; font-weight: 600; color: var(--white); line-height: 1.3; }
-.modal-subtitle { font-size: 13px; color: var(--text2); margin-top: 3px; }
-.modal-close {
-  position: absolute; top: 18px; right: 20px;
-  background: var(--bg3); border: 0.5px solid var(--border2);
-  color: var(--text2); width: 30px; height: 30px;
-  border-radius: 99px; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 16px; transition: all 0.15s;
-}
-.modal-close:hover { color: var(--white); border-color: var(--text3); }
-
-.modal-body { padding: 20px 24px; }
-
-/* ---- PRICE SELECTED BADGE ---- */
-.price-selected {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--bg3); border-radius: var(--radius);
-  padding: 16px 20px; margin-bottom: 20px;
-  border: 0.5px solid var(--border2);
-}
-.ps-left .ps-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
-.ps-price { font-family: 'DM Serif Display', serif; font-size: 32px; color: var(--white); letter-spacing: -0.02em; }
-.ps-badge {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  padding: 4px 12px; border-radius: 99px; font-weight: 500;
-}
-.ps-badge.t1 { background: #222; color: #888; border: 0.5px solid #444; }
-.ps-badge.t2 { background: #1a3a25; color: #4ade80; border: 0.5px solid #2a5a35; }
-.ps-badge.t3 { background: #1a2840; color: #60a5fa; border: 0.5px solid #2a4060; }
-
-/* ---- BREAKDOWN TABLE ---- */
-.breakdown-title {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em;
-  margin-bottom: 12px;
-}
-.breakdown-table { width: 100%; }
-.breakdown-row {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 10px 0; border-bottom: 0.5px solid var(--border);
-}
-.breakdown-row:last-child { border-bottom: none; }
-.breakdown-row.total {
-  padding-top: 14px; margin-top: 4px;
-  border-top: 0.5px solid var(--border2); border-bottom: none;
-}
-.br-label { font-size: 13px; color: var(--text2); }
-.br-sub { font-size: 11px; color: var(--text3); margin-top: 1px; }
-.br-val { font-size: 14px; font-weight: 500; color: var(--text); font-family: 'DM Mono', monospace; }
-.br-val.green { color: #4ade80; }
-.br-val.dim { color: var(--text3); }
-.total .br-label { font-size: 14px; color: var(--white); font-weight: 600; }
-.total .br-val { font-size: 16px; color: #4ade80; }
-
-/* ---- MARGIN BAR ---- */
-.margin-visual {
-  background: var(--bg3); border-radius: var(--radius);
-  padding: 16px 20px; margin-top: 16px;
-  border: 0.5px solid var(--border);
-}
-.mv-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.mv-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
-.mv-pct { font-size: 22px; font-weight: 600; color: var(--white); font-family: 'DM Mono', monospace; }
-.mv-bar-wrap { height: 5px; background: var(--bg4); border-radius: 99px; overflow: hidden; margin-bottom: 10px; }
-.mv-bar { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #4ade80, #86efac); transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-.mv-compare { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-.mvc-item { text-align: center; }
-.mvc-pct { font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 500; color: var(--text); }
-.mvc-qty { font-size: 10px; color: var(--text3); margin-top: 2px; }
-.mvc-active .mvc-pct { color: #4ade80; }
-.mvc-active .mvc-qty { color: #4ade80; opacity: 0.7; }
-
-/* ---- PROYEKSI VOLUME ---- */
-.vol-section { margin-top: 20px; }
-.vol-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-.vol-card {
-  background: var(--bg4); border: 0.5px solid var(--border);
-  border-radius: var(--radius-sm); padding: 12px 10px; text-align: center;
-}
-.vc-qty { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); margin-bottom: 2px; }
-.vc-tier { font-size: 9px; font-family: 'DM Mono', monospace; padding: 1px 6px; border-radius: 99px; display: inline-block; margin-bottom: 6px; }
-.vc-tier.t1 { background: #1e1e1e; color: #888; }
-.vc-tier.t2 { background: #1a3a25; color: #4ade80; }
-.vc-tier.t3 { background: #1a2840; color: #60a5fa; }
-.vc-laba { font-size: 14px; font-weight: 600; color: #4ade80; font-family: 'DM Mono', monospace; }
-.vc-omzet { font-size: 10px; color: var(--text3); margin-top: 2px; font-family: 'DM Mono', monospace; }
-
-.modal-footer {
-  padding: 14px 24px 28px;
-  border-top: 0.5px solid var(--border);
-  display: flex; gap: 10px;
-}
-.modal-footer .btn-primary { flex: 1; text-align: center; }
-.btn-wa {
-  background: #1a3a25; color: #4ade80;
-  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600;
-  padding: 10px 20px; border-radius: 99px;
-  border: 0.5px solid #2a5a35; cursor: pointer;
-  transition: all 0.2s; white-space: nowrap;
-  display: flex; align-items: center; gap: 6px;
-}
-.btn-wa:hover { background: #244d32; }
-
-/* ---- FOOTER ---- */
-.footer {
-  position: relative; z-index: 1;
-  border-top: 0.5px solid var(--border);
-  padding: 2rem;
-  text-align: center;
-}
-.footer-text { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
-
-/* ---- ANIMATIONS ---- */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.prod-card { animation: fadeUp 0.4s ease both; }
-.prod-card:nth-child(1) { animation-delay: 0.05s; }
-.prod-card:nth-child(2) { animation-delay: 0.10s; }
-.prod-card:nth-child(3) { animation-delay: 0.15s; }
-.prod-card:nth-child(4) { animation-delay: 0.20s; }
-.prod-card:nth-child(5) { animation-delay: 0.25s; }
-.prod-card:nth-child(6) { animation-delay: 0.30s; }
-
-/* ---- SORT ROW ---- */
-.sort-row {
-  display: flex; align-items: center; gap: 8px;
-  flex-wrap: wrap;
-}
-.sort-label {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em;
-  margin-right: 2px;
-}
-.sort-pill {
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  padding: 5px 14px; border-radius: 99px;
-  border: 0.5px solid var(--border2);
-  background: transparent; color: var(--text3);
-  cursor: pointer; transition: all 0.15s;
-  display: flex; align-items: center; gap: 5px;
-}
-.sort-pill:hover { color: var(--text2); border-color: var(--text3); }
-.sort-pill.active { background: var(--bg3); color: var(--text); border-color: var(--border2); }
-.sort-arrow { margin-left: 5px; font-size: 10px; }
-
-/* ---- BUNDLE PANEL ---- */
-.bundle-panel {
-  background: var(--bg2); border: 0.5px solid var(--border2);
-  border-radius: var(--radius); padding: 20px 24px;
-  margin-bottom: 2rem; position: relative; overflow: hidden;
-}
-.bundle-panel::before {
-  content: 'BUNDLE FLAT';
-  position: absolute; top: 18px; right: 20px;
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  color: var(--text3); letter-spacing: 0.15em;
-}
-.bundle-panel-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px; color: var(--white); margin-bottom: 4px;
-}
-.bundle-panel-sub { font-size: 12px; color: var(--text3); margin-bottom: 18px; }
-.bundle-controls {
-  display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: end;
-  margin-bottom: 16px;
-}
-.bc-group label {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em;
-  display: block; margin-bottom: 6px;
-}
-.bc-select, .bc-input {
-  width: 100%; background: var(--bg3); border: 0.5px solid var(--border2);
-  color: var(--text); font-family: 'DM Mono', monospace; font-size: 12px;
-  padding: 8px 12px; border-radius: var(--radius-sm);
-  outline: none; transition: border-color 0.15s; appearance: none;
-}
-.bc-select:focus, .bc-input:focus { border-color: var(--text3); }
-.bc-select option { background: var(--bg3); }
-.btn-calc {
-  background: var(--white); color: var(--bg);
-  font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600;
-  padding: 8px 18px; border-radius: var(--radius-sm); border: none;
-  cursor: pointer; white-space: nowrap; transition: all 0.15s;
-  letter-spacing: 0.05em;
-}
-.btn-calc:hover { background: var(--accent); }
-
-.bundle-results { display: none; }
-.bundle-results.show { display: block; }
-.bundle-divider { height: 0.5px; background: var(--border); margin: 14px 0; }
-.bundle-table { width: 100%; border-collapse: collapse; }
-.bt-head th {
-  font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text3);
-  text-transform: uppercase; letter-spacing: 0.08em; text-align: left;
-  padding: 0 8px 8px 0; font-weight: 400; border-bottom: 0.5px solid var(--border);
-}
-.bt-head th:last-child { text-align: right; }
-.bundle-table td {
-  font-size: 12px; padding: 9px 8px 9px 0; color: var(--text2);
-  border-bottom: 0.5px solid var(--border);
-  vertical-align: middle;
-}
-.bundle-table td:last-child { text-align: right; font-family: 'DM Mono', monospace; }
-.bundle-table tr:last-child td { border-bottom: none; }
-.td-pkg { font-size: 12px; color: var(--text); max-width: 180px; line-height: 1.4; }
-.td-hpp { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text3); }
-.td-laba { font-family: 'DM Mono', monospace; font-size: 12px; }
-.td-laba.ok { color: #4ade80; }
-.td-laba.warn { color: #facc15; }
-.td-laba.bad { color: #f87171; }
-.td-pct { font-size: 10px; opacity: 0.7; display: block; }
-.bundle-summary {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 8px; margin-top: 14px;
-}
-.bsum-card {
-  background: var(--bg3); border-radius: var(--radius-sm);
-  padding: 10px 12px; border: 0.5px solid var(--border);
-}
-.bsum-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
-.bsum-val { font-size: 15px; font-weight: 600; color: var(--white); font-family: 'DM Mono', monospace; }
-.bsum-sub { font-size: 10px; color: var(--text3); margin-top: 2px; }
-
-/* ---- RESPONSIVE ---- */
-@media (max-width: 768px) {
-  .hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.25rem 2rem; }
-  .hero-right { display: none; }
-  .tier-strip-inner { grid-template-columns: 1fr; }
-  .ts-item { border-right: none; border-bottom: 0.5px solid var(--border); padding: 14px 0; }
-  .ts-item:nth-child(2), .ts-item:last-child { padding-left: 0; }
-  .main { padding: 2rem 1.25rem; }
-  .catalog-grid { grid-template-columns: 1fr; }
-  .modal { border-radius: 20px 20px 0 0; }
-}
+.hero{animation:fadeUp .5s ease both;}
+.tier-strip{animation:fadeUp .5s .1s ease both;}
+#rincian{animation:fadeUp .5s .15s ease both;}
+#bundle{animation:fadeUp .5s .2s ease both;}
+#kalkulator{animation:fadeUp .5s .25s ease both;}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="header-inner">
-    <div class="logo">UBI<span>CO</span></div>
-    <div class="header-badge">Atribut Mahasiswa</div>
-    <div class="header-meta">Mulai Rp 145.000</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Pricelist — Bundling</div>
+  <div class="nav-links">
+    <a href="#rincian">Rincian</a>
+    <a href="#bundle">Bundle</a>
+    <a href="#kalkulator">Kalkulator</a>
   </div>
-</header>
+</nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Katalog Produk 2025</div>
-    <h1 class="hero-title">
-      Atribut<br>
-      Mahasiswa<br>
-      <em>Premium</em>
-    </h1>
-    <p class="hero-desc">
-      Rompi + lanyard full print 2 sisi + ID card + holder. Pesan per pcs hingga organisasi mahasiswa.
-    </p>
-    <div class="hero-cta-row">
-      <button class="btn-primary" onclick="document.querySelector('.main').scrollIntoView({behavior:'smooth'})">Lihat Katalog</button>
-   <a href="https://instagram.com/ubico.id" target="_blank" rel="noopener noreferrer" class="btn-ghost">Hubungi Kami</a>
-    </div>
+<div class="hero">
+  <div class="hero-tag">Skema Harga Final</div>
+  <h1>Vest · Lanyard · <em>Vandel</em></h1>
+  <p>4 tier harga — dari beli satuan biasa sampai grosir bundling. MOQ 12 bundle buat dapetin harga terbaik.</p>
+</div>
+
+<!-- TIER STRIP -->
+<div class="tier-strip">
+  <div class="tier-card t1">
+    <div class="tn">Tier 1</div>
+    <div class="tname">Eceran Satuan</div>
+    <div class="tcond">Vest / lanyard satuan, kurang dari 12 pcs</div>
+    <div class="tprice">27,5%<sub>markup dari HPP</sub></div>
   </div>
-  <div class="hero-right">
-    <div class="hero-stat">
-      <div class="stat-num">24</div>
-      <div class="stat-label">Kombinasi paket tersedia</div>
-      <div class="tier-mini">
-        <div class="tier-chip tc1"><div class="qty">1–49 pcs</div><div class="pct">22.5%</div></div>
-        <div class="tier-chip tc2"><div class="qty">50–99 pcs</div><div class="pct">18.5%</div></div>
-        <div class="tier-chip tc3"><div class="qty">≥100 pcs</div><div class="pct">15%</div></div>
+  <div class="tier-card t2">
+    <div class="tn">Tier 2</div>
+    <div class="tname">Eceran Bundling</div>
+    <div class="tcond">Bundle-an, tapi belum nyampe MOQ 12</div>
+    <div class="tprice">24,3%<sub>markup aktual (diskon 2,5%)</sub></div>
+  </div>
+  <div class="tier-card t3">
+    <div class="tn">Tier 3</div>
+    <div class="tname">Grosir Satuan</div>
+    <div class="tcond">Vest / lanyard satuan, minimal 12 pcs</div>
+    <div class="tprice">21,1%<sub>markup aktual (diskon 5%)</sub></div>
+  </div>
+  <div class="tier-card t4">
+    <div class="best-badge">Terbaik</div>
+    <div class="tn">Tier 4</div>
+    <div class="tname">Grosir Bundling</div>
+    <div class="tcond">Total bundle minimal 12, kombinasi bebas</div>
+    <div class="tprice">18,1%<sub>markup aktual (T2 dikurangi 5%)</sub></div>
+  </div>
+</div>
+
+<!-- RINCIAN ITEM -->
+<section id="rincian">
+  <div class="sec-head">
+    <h2>Rincian item</h2>
+    <p>Klik tiap item buat lihat breakdown HPP &amp; harga per tier</p>
+  </div>
+
+  <div class="item-grid">
+
+    <!-- VEST -->
+    <div class="item-card" id="ic-vest">
+      <div class="item-card-head" onclick="toggleItem('ic-vest')">
+        <div>
+          <div class="iname">Vest</div>
+          <div class="isub">Bahan + bordir</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="item-hpp-pill">HPP Rp75.000</div>
+          <div class="item-acc-btn">+</div>
+        </div>
+      </div>
+      <div class="item-body">
+        <div class="hpp-block">
+          <div class="hpp-block-title">Rincian HPP</div>
+          <div class="hpp-row"><span>Bahan kain</span><b>Rp50.000</b></div>
+          <div class="hpp-row"><span>Bordir logo/nama</span><b>Rp25.000</b></div>
+          <div class="hpp-total-row"><span>Total HPP</span><b>Rp75.000</b></div>
+        </div>
+        <div class="tier-rows">
+          <div class="tier-row-item">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--text3)"></span>
+              <div><div>Tier 1 — Eceran satuan</div><div class="tr-markup">markup 27,5%</div></div>
+            </div>
+            <div class="tr-price">Rp95.625 Pembulatan 96k</div>
+          </div>
+          <div class="tier-row-item">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--blue)"></span>
+              <div><div>Tier 2 — Eceran bundling</div><div class="tr-markup">markup ~24,3% (diskon 2,5%)</div></div>
+            </div>
+            <div class="tr-price">Rp93.234 pembulanan 94k</div>
+          </div>
+          <div class="tier-row-item">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--amber)"></span>
+              <div><div>Tier 3 — Grosir satuan</div><div class="tr-markup">markup ~21,1% (diskon 5%)</div></div>
+            </div>
+            <div class="tr-price">Rp90.843 Pembulatan 91k</div>
+          </div>
+          <div class="tier-row-item highlighted">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--teal)"></span>
+              <div><div>Tier 4 — Grosir bundling</div><div class="tr-markup">markup ~18,1% (T2 − 5%)</div></div>
+            </div>
+            <div class="tr-price">Rp88.572 Pembulatan 89k</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-stat">
-      <div class="stat-num">Rp 145rb</div>
-      <div class="stat-label">Harga mulai dari</div>
+
+    <!-- LANYARD -->
+    <div class="item-card" id="ic-lanyard">
+      <div class="item-card-head" onclick="toggleItem('ic-lanyard')">
+        <div>
+          <div class="iname">Lanyard</div>
+          <div class="isub">Tali + kait standar</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="item-hpp-pill">HPP Rp9.000</div>
+          <div class="item-acc-btn">+</div>
+        </div>
+      </div>
+      <div class="item-body">
+        <div class="hpp-block">
+          <div class="hpp-block-title">Rincian HPP</div>
+          <div class="hpp-row"><span>Bahan tali + kait</span><b>Rp9.000</b></div>
+          <div class="hpp-total-row"><span>Total HPP</span><b>Rp9.000</b></div>
+        </div>
+        <div class="tier-rows">
+          <div class="tier-row-item">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--text3)"></span>
+              <div><div>Tier 1 — Eceran satuan</div><div class="tr-markup">markup 27,5%</div></div>
+            </div>
+            <div class="tr-price">Rp11.475 Pembulatan 12k</div>
+          </div>
+          <div class="tier-row-item">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--blue)"></span>
+              <div><div>Tier 2 — Eceran bundling</div><div class="tr-markup">markup ~24,3%</div></div>
+            </div>
+            <div class="tr-price">Rp11.188 Pembulatan 12k</div>
+          </div>
+          <div class="tier-row-item">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--amber)"></span>
+              <div><div>Tier 3 — Grosir satuan</div><div class="tr-markup">markup ~21,1%</div></div>
+            </div>
+            <div class="tr-price">Rp10.901 Pembulatan 11k</div>
+          </div>
+          <div class="tier-row-item highlighted">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--teal)"></span>
+              <div><div>Tier 4 — Grosir bundling</div><div class="tr-markup">markup ~18,1%</div></div>
+            </div>
+            <div class="tr-price">Rp10.629 Pembulatan 11k</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="hero-stat">
-      <div class="stat-num">15%</div>
-      <div class="stat-label">Laba minimum terjamin</div>
+
+    <!-- VANDEL -->
+    <div class="item-card" id="ic-vandel">
+      <div class="item-card-head" onclick="toggleItem('ic-vandel')">
+        <div>
+          <div class="iname">Vandel</div>
+          <div class="isub">Harga flat — markup tinggi by design</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="item-hpp-pill">HPP Rp30.000</div>
+          <div class="item-acc-btn">+</div>
+        </div>
+      </div>
+      <div class="item-body">
+        <div class="hpp-block">
+          <div class="hpp-block-title">Rincian HPP</div>
+          <div class="hpp-row"><span>Biaya produksi vandel</span><b>Rp30.000</b></div>
+          <div class="hpp-total-row"><span>Total HPP</span><b>Rp30.000</b></div>
+        </div>
+        <div class="note amber" style="margin:12px 0 10px;font-size:12px;">
+          <b>Kenapa dimahalin?</b> Markup vandel satuan 66,7% supaya orang ngerasa bundling jauh lebih worth it. Vandel nggak punya tier grosir satuan karena jarang ada yang butuh lebih dari 12 pcs.
+        </div>
+        <div class="tier-rows">
+          <div class="tier-row-item special-flat">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--amber)"></span>
+              <div><div>Harga publik (satuan)</div><div class="tr-markup">markup 66,7% — harga flat</div></div>
+            </div>
+            <div class="tr-price">Rp50.000</div>
+          </div>
+          <div class="tier-row-item highlighted">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--teal)"></span>
+              <div><div>Dalam bundle (semua tier)</div><div class="tr-markup">sama, masuk di harga flat ini</div></div>
+            </div>
+            <div class="tr-price">Rp50.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VANDEL + BOX BLUDRU -->
+    <div class="item-card" id="ic-vandel-bludru">
+      <div class="item-card-head" onclick="toggleItem('ic-vandel-bludru')">
+        <div>
+          <div class="iname">Vandel + Box Bludru</div>
+          <div class="isub">Vandel + packaging premium</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="item-hpp-pill">HPP Rp65.000</div>
+          <div class="item-acc-btn">+</div>
+        </div>
+      </div>
+      <div class="item-body">
+        <div class="hpp-block">
+          <div class="hpp-block-title">Rincian HPP</div>
+          <div class="hpp-row"><span>Vandel</span><b>Rp30.000</b></div>
+          <div class="hpp-row"><span>Box bludru / packaging premium</span><b>Rp35.000</b></div>
+          <div class="hpp-total-row"><span>Total HPP</span><b>Rp65.000</b></div>
+        </div>
+        <div class="note amber" style="margin:12px 0 10px;font-size:12px;">
+          <b>Juga harga flat.</b> Markup 53,8% — sedikit lebih rendah dari vandel doang karena value packaging-nya kerasa langsung. Tetap nggak punya tier grosir satuan.
+        </div>
+        <div class="tier-rows">
+          <div class="tier-row-item special-flat">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--amber)"></span>
+              <div><div>Harga publik (satuan)</div><div class="tr-markup">markup 53,8% — harga flat</div></div>
+            </div>
+            <div class="tr-price">Rp100.000</div>
+          </div>
+          <div class="tier-row-item highlighted">
+            <div class="tr-label">
+              <span class="tr-dot" style="background:var(--teal)"></span>
+              <div><div>Dalam bundle (semua tier)</div><div class="tr-markup">sama, masuk di harga flat ini</div></div>
+            </div>
+            <div class="tr-price">Rp100.000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /item-grid -->
+</section>
+
+<!-- BUNDLE -->
+<section id="bundle">
+  <div class="sec-head">
+    <h2>Paket bundling</h2>
+    <p>3 pilihan paket + rincian harga per tier — klik untuk expand</p>
+  </div>
+  <div class="bundle-grid">
+
+    <!-- Bundle 1 -->
+    <div class="bundle-card" id="bc1">
+      <div class="bc-head" onclick="toggleBundle('bc1')">
+        <span class="badge b-gray">Bundle 1</span>
+        <div class="bc-acc-btn">+</div>
+      </div>
+      <div class="bc-title" style="padding:0 18px;">Vest + Lanyard</div>
+      <div class="bc-items">Bundle dasar. Yang paling sering dipesen. Jadi basis kalkulasi semua bundle lain.</div>
+      <div class="bc-prices">
+        <div class="bc-price-row"><span>Harga normal (T1)</span><b>Rp107.100 Pembulatan 108k</b></div>
+        <div class="bc-price-row"><span>Eceran bundling (T2, diskon 2,5%)</span><b>Rp104.422 Pembulatan 105k</b></div>
+        <div class="bc-price-row hl"><span>Grosir bundling (T4, MOQ 12)</span><b>Rp99.201 Pembulatan 100k</b></div>
+      </div>
+      <div class="bc-detail">
+        <div class="bc-detail-title">Komponen</div>
+        <div class="bc-comp-row"><span>Vest (T1: Rp95.625)</span><b>Rp95.625 </b></div>
+        <div class="bc-comp-row"><span>Lanyard (T1: Rp11.475)</span><b>Rp11.475</b></div>
+        <div class="bc-total-row"><span>Total HPP bundle</span><b>Rp84.000</b></div>
+        <div style="font-size:10px;color:var(--text3);margin-top:8px;">HPP vest Rp75k + lanyard Rp9k = <b style="color:var(--text2)">Rp84.000</b>. Selisih harga T4 vs HPP: +Rp15.201 per bundle.</div>
+      </div>
+    </div>
+
+    <!-- Bundle 2 -->
+    <div class="bundle-card" id="bc2">
+      <div class="bc-head" onclick="toggleBundle('bc2')">
+        <span class="badge b-blue">Bundle 2</span>
+        <div class="bc-acc-btn">+</div>
+      </div>
+      <div class="bc-title" style="padding:0 18px;">Vest + Lanyard + Vandel</div>
+      <div class="bc-items">Vandel masuk di harga publik Rp50.000 flat. Ngerasa jauh lebih worth it dibanding beli vandel satuan.</div>
+      <div class="bc-prices">
+        <div class="bc-price-row"><span>Harga normal (T1)</span><b>Rp157.100 Pembulatan 158k</b></div>
+        <div class="bc-price-row"><span>Eceran bundling (T2, diskon 2,5%)</span><b>Rp153.172 Pembulatan 154k</b></div>
+        <div class="bc-price-row hl"><span>Grosir bundling (T4, MOQ 12)</span><b>Rp145.513 Pembulatan 146k</b></div>
+        <div class="bc-note">Upgrade dari B1 (T4): <b style="color:var(--text)">+Rp46.312</b></div>
+      </div>
+      <div class="bc-detail">
+        <div class="bc-detail-title">Komponen</div>
+        <div class="bc-comp-row"><span>Vest</span><b>Rp95.625</b></div>
+        <div class="bc-comp-row"><span>Lanyard</span><b>Rp11.475</b></div>
+        <div class="bc-comp-row"><span>Vandel (flat)</span><b>Rp50.000</b></div>
+        <div class="bc-total-row"><span>Total HPP bundle</span><b>Rp114.000</b></div>
+        <div style="font-size:10px;color:var(--text3);margin-top:8px;">HPP = Rp84k + Rp30k vandel. Margin T4 per bundle: +Rp31.513.</div>
+      </div>
+    </div>
+
+    <!-- Bundle 3 -->
+    <div class="bundle-card" id="bc3">
+      <div class="bc-head" onclick="toggleBundle('bc3')">
+        <span class="badge b-amber">Bundle 3</span>
+        <div class="bc-acc-btn">+</div>
+      </div>
+      <div class="bc-title" style="padding:0 18px;">Vest + Lanyard + Vandel + Bludru</div>
+      <div class="bc-items">Vandel + box bludru premium masuk di Rp100.000 flat. Paket paling mewah.</div>
+      <div class="bc-prices">
+        <div class="bc-price-row"><span>Harga normal (T1)</span><b>Rp206.975 Pembulatan 207k</b></div>
+        <div class="bc-price-row"><span>Eceran bundling (T2, diskon 2,5%)</span><b>Rp201.800 Pembulatan 202k</b></div>
+        <div class="bc-price-row hl"><span>Grosir bundling (T4, MOQ 12)</span><b>Rp191.710 Pembulatan 192k</b></div>
+        <div class="bc-note">Upgrade dari B1 (T4): <b style="color:var(--text)">+Rp92.509</b></div>
+      </div>
+      <div class="bc-detail">
+        <div class="bc-detail-title">Komponen</div>
+        <div class="bc-comp-row"><span>Vest</span><b>Rp95.625 Pembulatan 96k</b></div>
+        <div class="bc-comp-row"><span>Lanyard</span><b>Rp11.475 Pembulatan 12k</b></div>
+        <div class="bc-comp-row"><span>Vandel + Box Bludru (flat)</span><b>Rp100.000 Pembulatan 100k</b></div>
+        <div class="bc-total-row"><span>Total HPP bundle</span><b>Rp149.000 Pembulatan 149k</b></div>
+        <div style="font-size:10px;color:var(--text3);margin-top:8px;">HPP = Rp84k + Rp65k vandel+bludru. Margin T4 per bundle: +Rp42.710. Pembulatan 43k</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="note teal">
+    <b>MOQ 12 dihitung dari total bundle, bukan per jenis.</b> Contoh: 11× Bundle 1 + 1× Bundle 2 = 12 total → semua dapat Tier 4. Upgrade ke Bundle 2 atau 3 pas order grosir tetap kena harga Tier 4. Selisih upgrade = harga T4 bundle tujuan dikurangi harga T4 Bundle 1.
+  </div>
+</section>
+
+<!-- KALKULATOR -->
+<section id="kalkulator">
+  <div class="sec-head">
+    <h2>Kalkulator order</h2>
+    <p>Hitung total otomatis, tier menyesuaikan saat MOQ 12 tercapai</p>
+  </div>
+  <div class="calc-wrap">
+    <div class="calc-header">
+      <div class="calc-icon">🧮</div>
+      <div>
+        <h3>Susun order bundling</h3>
+        <p>Naikkan jumlah bundle — harga otomatis update pas MOQ 12 terpenuhi</p>
+      </div>
+    </div>
+   <div class="calc-body">
+
+      <div class="calc-row" id="row-b1">
+        <div class="calc-info">
+          <div class="calc-name"><span class="badge b-gray" style="margin-right:7px">Bundle 1</span> Vest + Lanyard</div>
+          <div class="calc-desc">Bundle dasar</div>
+        </div>
+        <div class="calc-prices">
+          <span><b id="b1p-t2">Rp105.000</b>Eceran (T2)</span>
+          <span><b id="b1p-t4">Rp100.000</b>Grosir (T4)</span>
+        </div>
+        <div class="counter">
+          <button class="cnt-btn" onclick="adj('b1',-1)" aria-label="Kurangi B1">−</button>
+          <span class="cnt-val" id="b1-qty">0</span>
+          <button class="cnt-btn" onclick="adj('b1',1)" aria-label="Tambah B1">+</button>
+        </div>
+      </div>
+
+      <div class="calc-row" id="row-b2">
+        <div class="calc-info">
+          <div class="calc-name"><span class="badge b-blue" style="margin-right:7px">Bundle 2</span> Vest + Lanyard + Vandel</div>
+          <div class="calc-desc">Vandel Rp50.000 flat — upgrade B1→B2 (T4): Rp46.000</div>
+        </div>
+        <div class="calc-prices">
+          <span><b id="b2p-t2">Rp154.000</b>Eceran (T2)</span>
+          <span><b id="b2p-t4">Rp146.000</b>Grosir (T4)</span>
+        </div>
+        <div class="counter">
+          <button class="cnt-btn" onclick="adj('b2',-1)" aria-label="Kurangi B2">−</button>
+          <span class="cnt-val" id="b2-qty">0</span>
+          <button class="cnt-btn" onclick="adj('b2',1)" aria-label="Tambah B2">+</button>
+        </div>
+      </div>
+
+      <div class="calc-row" id="row-b3">
+        <div class="calc-info">
+          <div class="calc-name"><span class="badge b-amber" style="margin-right:7px">Bundle 3</span> Vest + Lanyard + Vandel + Bludru</div>
+          <div class="calc-desc">Vandel+Bludru Rp100.000 flat — upgrade B1→B3 (T4): Rp92.000</div>
+        </div>
+        <div class="calc-prices">
+          <span><b id="b3p-t2">Rp202.000</b>Eceran (T2)</span>
+          <span><b id="b3p-t4">Rp192.000</b>Grosir (T4)</span>
+        </div>
+        <div class="counter">
+          <button class="cnt-btn" onclick="adj('b3',-1)" aria-label="Kurangi B3">−</button>
+          <span class="cnt-val" id="b3-qty">0</span>
+          <button class="cnt-btn" onclick="adj('b3',1)" aria-label="Tambah B3">+</button>
+        </div>
+      </div>
+
+      <div id="result-area"></div>
     </div>
   </div>
 </section>
 
-<!-- TIER STRIP -->
-<div class="tier-strip">
-  <div class="tier-strip-inner">
-    <div class="ts-item">
-      <div class="ts-dot"></div>
-      <div><div class="ts-label">Tier 1 · Normal</div><div class="ts-val">1–49 pcs · markup 22.5%</div></div>
-    </div>
-    <div class="ts-item">
-      <div class="ts-dot"></div>
-      <div><div class="ts-label">Tier 2 · Bulk ⭐</div><div class="ts-val">50–99 pcs · markup 18.5%</div></div>
-    </div>
-    <div class="ts-item">
-      <div class="ts-dot"></div>
-      <div><div class="ts-label">Tier 3 · Komunitas</div><div class="ts-val">≥100 pcs · markup 15%</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- MAIN CATALOG -->
-<main class="main">
-  <div class="section-header">
-    <h2 class="section-title">Semua Paket</h2>
-    <span class="section-sub" id="count-label">24 paket</span>
-  </div>
-
-  <!-- FILTER + SORT ROW -->
-  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;margin-bottom:1rem;padding-bottom:1.5rem;border-bottom:0.5px solid var(--border);">
-    <div class="filters" id="filter-row" style="border:none;padding:0;margin:0;flex:1;min-width:200px;"></div>
-    <div class="sort-row">
-      <span class="sort-label">Urut</span>
-      <button class="sort-pill active" onclick="setSort('default',this)">Default</button>
-      <button class="sort-pill" onclick="setSort('asc',this)">Termurah ↑</button>
-      <button class="sort-pill" onclick="setSort('desc',this)">Termahal ↓</button>
-    </div>
-  </div>
-
-  <!-- BUNDLE FLAT PANEL -->
-  <div class="bundle-panel">
-    <div class="bundle-panel-title">Kalkulator Harga Flat</div>
-    <div class="bundle-panel-sub">Masukkan satu harga jual flat → lihat margin tiap paket sekaligus untuk analisis bundle</div>
-    <div class="bundle-controls">
-      <div class="bc-group">
-        <label>Tier</label>
-        <select class="bc-select" id="bundle-tier">
-          <option value="0">Tier 1 · Normal (1–49 pcs)</option>
-          <option value="1" selected>Tier 2 · Bulk (50–99 pcs)</option>
-          <option value="2">Tier 3 · Komunitas (≥100 pcs)</option>
-        </select>
-      </div>
-      <div class="bc-group">
-        <label>Harga Flat (Rp)</label>
-        <input class="bc-input" id="bundle-price" type="number" placeholder="cth. 175000" step="500" min="0">
-      </div>
-      <button class="btn-calc" onclick="calcBundle()">Hitung →</button>
-    </div>
-    <div class="bundle-results" id="bundle-results"></div>
-  </div>
-
-  <div id="catalog-root"></div>
-</main>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-text">UBICO — Katalog Atribut Mahasiswa · Harga berlaku 2026 · Semua harga sudah termasuk lanyard full print 2 sisi</div>
+<footer>
+  Skema harga final — <span>Bundling Vest &amp; Lanyard</span>. Semua harga dalam Rupiah.
 </footer>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal" id="modal">
-    <div class="modal-handle"></div>
-    <div style="position:relative">
-      <div class="modal-header" id="modal-header"></div>
-      <button class="modal-close" onclick="closeModalDirect()">✕</button>
-    </div>
-    <div class="modal-body" id="modal-body"></div>
-    <div class="modal-footer" id="modal-footer"></div>
-  </div>
-</div>
-
 <script>
-// =========================================
-// DATA
-// =========================================
-const TIERS = [
-  { key: 't1', label: 'Tier 1', short: 'Normal', qty: '1–49', markup: 0.225 },
-  { key: 't2', label: 'Tier 2', short: 'Bulk', qty: '50–99', markup: 0.185 },
-  { key: 't3', label: 'Tier 3', short: 'Komunitas', qty: '≥100', markup: 0.15 },
-];
-const ROMPI = [
-  { nama: 'American Drill', hppMin: 95000, hppMax: 105000 },
-  { nama: 'Castillo Drill', hppMin: 105000, hppMax: 115000 },
-  { nama: 'Nagata Drill', hppMin: 115000, hppMax: 125000 },
-  { nama: 'Ribstok', hppMin: 125000, hppMax: 135000 },
-];
-const IDCARD = [
-  { nama: 'Inkjet (PVC)', hpp: 3500 },
-  { nama: 'Laserjet (PVC)', hpp: 4000 },
-];
-const HOLDER = [
-  { nama: 'Holder PVC', hpp: 1500 },
-  { nama: 'Holder Akrilik Standar', hpp: 2100 },
-  { nama: 'Holder Akrilik Tebal', hpp: 4500 },
-];
-const LANYARD_HPP = 7500;
+// ── ITEM ACCORDION ──
+function toggleItem(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
 
-const VOL_SCENARIOS = [
-  { qty: 25, tierIdx: 0 }, { qty: 50, tierIdx: 1 }, { qty: 75, tierIdx: 1 },
-  { qty: 100, tierIdx: 2 }, { qty: 150, tierIdx: 2 }, { qty: 200, tierIdx: 2 },
-];
+// ── BUNDLE ACCORDION ──
+function toggleBundle(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
 
-// =========================================
-// HELPERS
-// =========================================
-function round500(n) { return Math.round(n / 500) * 500; }
+// ── KALKULATOR ──
+// Menggunakan harga bulat fix untuk kalkulasi tagihan
+const p = {
+  b1: { t2: 105000, t4: 100000 },
+  b2: { t2: 154000, t4: 146000 },
+  b3: { t2: 202000, t4: 192000 }
+};
+const qty = { b1: 0, b2: 0, b3: 0 };
+
+// Tambahan Data Dasar HPP per Bundle
+const hpp = { 
+  b1: 84000, 
+  b2: 114000, 
+  b3: 149000 
+};
+
 function fmt(n) {
-  return 'Rp\u00A0' + n.toLocaleString('id-ID');
-}
-function fmtShort(n) {
-  if (n >= 1000000) return 'Rp\u00A0' + (n / 1000000).toFixed(1) + 'jt';
-  if (n >= 1000) return 'Rp\u00A0' + (n / 1000).toFixed(0) + 'rb';
-  return fmt(n);
+  return 'Rp' + Math.round(n).toLocaleString('id-ID');
 }
 
-// =========================================
-// BUILD PACKAGES
-// =========================================
-function buildPackages() {
-  const pkgs = [];
-  ROMPI.forEach(r => {
-    IDCARD.forEach(id => {
-      HOLDER.forEach(h => {
-        const hppMin = r.hppMin + LANYARD_HPP + id.hpp + h.hpp;
-        const hppMax = r.hppMax + LANYARD_HPP + id.hpp + h.hpp;
-        const hppMid = Math.round((hppMin + hppMax) / 2);
-        const prices = TIERS.map(t => {
-          const jual = round500(Math.round(hppMid * (1 + t.markup)));
-          return {
-            key: t.key, label: t.label, short: t.short, qty: t.qty, markup: t.markup,
-            jual, labaMin: jual - hppMax, labaMax: jual - hppMin,
-          };
-        });
-        const recommended = r.nama === 'American Drill' && id.nama === 'Inkjet (PVC)' && h.nama === 'Holder PVC';
-        pkgs.push({ rompi: r.nama, idcard: id.nama, holder: h.nama, hppMin, hppMax, hppMid, prices, recommended });
-      });
-    });
-  });
-  return pkgs;
-}
-const PACKAGES = buildPackages();
-
-// =========================================
-// RENDER FILTERS
-// =========================================
-const ROMPI_NAMES = [...new Set(PACKAGES.map(p => p.rompi))];
-let activeFilter = 'all';
-let activeSort = 'default'; // 'default' | 'asc' | 'desc'
-
-function renderFilters() {
-  const row = document.getElementById('filter-row');
-  const all = ['all', ...ROMPI_NAMES];
-  row.innerHTML = all.map(f => `
-    <button class="filter-pill ${f === activeFilter ? 'active' : ''}"
-      onclick="setFilter('${f}', this)">${f === 'all' ? 'Semua Jenis' : f}</button>
-  `).join('');
+function adj(key, delta) {
+  qty[key] = Math.max(0, qty[key] + delta);
+  document.getElementById(key + '-qty').textContent = qty[key];
+  render();
 }
 
-function setFilter(f, btn) {
-  activeFilter = f;
-  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderCatalog();
-}
+function render() {
+  const total = qty.b1 + qty.b2 + qty.b3;
+  const area = document.getElementById('result-area');
+  if (total === 0) { area.innerHTML = ''; return; }
 
-function setSort(s, btn) {
-  activeSort = s;
-  document.querySelectorAll('.sort-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderCatalog();
-}
+  const isGrosir = total >= 12;
+  const tk = isGrosir ? 't4' : 't2';
 
-// =========================================
-// BUNDLE FLAT CALCULATOR
-// =========================================
-function calcBundle() {
-  const tierIdx = parseInt(document.getElementById('bundle-tier').value);
-  const flatPrice = parseInt(document.getElementById('bundle-price').value);
-  const res = document.getElementById('bundle-results');
+  const s1 = qty.b1 * p.b1[tk];
+  const s2 = qty.b2 * p.b2[tk];
+  const s3 = qty.b3 * p.b3[tk];
+  const grand = s1 + s2 + s3;
 
-  if (!flatPrice || flatPrice < 1000) {
-    res.innerHTML = `<div style="font-family:'DM Mono',monospace;font-size:12px;color:#f87171;padding:8px 0;">Masukkan harga yang valid dulu ya.</div>`;
-    res.classList.add('show'); return;
+  // Hitung Total HPP, Laba Bersih, dan Persentase Net Margin
+  const totalHpp = (qty.b1 * hpp.b1) + (qty.b2 * hpp.b2) + (qty.b3 * hpp.b3);
+  const profit = grand - totalHpp;
+  const marginPct = (profit / grand * 100).toFixed(1);
+
+  const pct = Math.min(100, Math.round((total / 12) * 100));
+  const kurang = 12 - total;
+
+  let lines = '';
+  if (qty.b1) lines += `<div class="result-line"><span>${qty.b1}× Bundle 1 — Vest + Lanyard</span><b>${fmt(s1)}</b></div>`;
+  if (qty.b2) lines += `<div class="result-line"><span>${qty.b2}× Bundle 2 — +Vandel</span><b>${fmt(s2)}</b></div>`;
+  if (qty.b3) lines += `<div class="result-line"><span>${qty.b3}× Bundle 3 — +Vandel +Bludru</span><b>${fmt(s3)}</b></div>`;
+
+  let upgradeHtml = '';
+  if (qty.b2 > 0 || qty.b3 > 0) {
+    let uLines = [];
+    if (qty.b2 > 0) {
+      const sel = qty.b2 * (p.b2[tk] - p.b1[tk]);
+      uLines.push(`${qty.b2}× upgrade B1→B2 = ${fmt(sel)}`);
+    }
+    if (qty.b3 > 0) {
+      const sel = qty.b3 * (p.b3[tk] - p.b1[tk]);
+      uLines.push(`${qty.b3}× upgrade B1→B3 = ${fmt(sel)}`);
+    }
+    upgradeHtml = `
+      <button class="upgrade-toggle" onclick="toggleUpgrade(this)">▾ Lihat rincian selisih upgrade</button>
+      <div class="upgrade-detail">${uLines.join('<br>')}<br><span style="color:var(--text3);font-size:10px">Selisih = harga bundle tujuan − Bundle 1, tier yang sama</span></div>
+    `;
   }
 
-  const tier = TIERS[tierIdx];
-  const filtered = activeFilter === 'all' ? PACKAGES : PACKAGES.filter(p => p.rompi === activeFilter);
+  const tierDot = isGrosir ? 'background:var(--teal)' : 'background:var(--blue)';
+  const tierText = isGrosir
+    ? `<span style="color:var(--teal)">Tier 4 — Grosir bundling</span>`
+    : `<span style="color:var(--blue)">Tier 2 — Eceran bundling</span>`;
 
-  // stats
-  let totalPkg = filtered.length, minLaba = Infinity, maxLaba = -Infinity;
-  let minLabaPct = Infinity, maxLabaPct = -Infinity, sumLaba = 0;
-  let rugCount = 0;
+  const moqBanner = isGrosir
+    ? `<div class="moq-banner ok"><span class="ico">✓</span><div class="moq-msg">MOQ 12 tercapai — semua bundle udah kena <b>harga Tier 4</b>. Kombinasi Bundle 1/2/3 apapun tetap valid.</div></div>`
+    : `<div class="moq-banner warn"><span class="ico">!</span><div class="moq-msg">Kurang <b>${kurang} bundle lagi</b> buat nyampe MOQ 12 dan naik ke <b>Tier 4</b>. Sekarang pakai harga Tier 2.</div></div>`;
 
-  const rows = filtered.map(p => {
-    const laba = flatPrice - p.hppMid;
-    const labaPct = Math.round((laba / p.hppMid) * 100);
-    minLaba = Math.min(minLaba, laba); maxLaba = Math.max(maxLaba, laba);
-    minLabaPct = Math.min(minLabaPct, labaPct); maxLabaPct = Math.max(maxLabaPct, labaPct);
-    sumLaba += laba;
-    if (laba < 0) rugCount++;
-    return { p, laba, labaPct };
-  });
+  const barClass = isGrosir ? '' : 'warn';
 
-  // sort by laba
-  rows.sort((a, b) => a.laba - b.laba);
-
-  const avgLaba = Math.round(sumLaba / totalPkg);
-
-  let tableRows = rows.map(({ p, laba, labaPct }) => {
-    const cls = laba < 0 ? 'bad' : labaPct < 10 ? 'warn' : 'ok';
-    const labaSign = laba >= 0 ? '+' : '';
-    return `<tr>
-      <td class="td-pkg">${p.rompi}<br><span style="color:var(--text3);font-size:11px">${p.idcard} · ${p.holder}</span></td>
-      <td class="td-hpp">${fmt(p.hppMid)}</td>
-      <td class="td-laba ${cls}">${labaSign}${fmt(laba)}<span class="td-pct">${labaSign}${labaPct}%</span></td>
-    </tr>`;
-  }).join('');
-
-  res.innerHTML = `
-  <div class="bundle-divider"></div>
-  <div class="bundle-summary">
-    <div class="bsum-card"><div class="bsum-label">Harga flat</div><div class="bsum-val">${fmtShort(flatPrice)}</div><div class="bsum-sub">${tier.label} · ${tier.qty} pcs</div></div>
-    <div class="bsum-card"><div class="bsum-label">Laba rata-rata</div><div class="bsum-val" style="color:${avgLaba>=0?'#4ade80':'#f87171'}">${fmtShort(Math.abs(avgLaba))}</div><div class="bsum-sub">${avgLaba>=0?'untung':'rugi'} per pcs</div></div>
-    <div class="bsum-card"><div class="bsum-label">Margin min</div><div class="bsum-val" style="color:${minLabaPct<0?'#f87171':minLabaPct<10?'#facc15':'#4ade80'}">${minLabaPct}%</div><div class="bsum-sub">paket termahal</div></div>
-    <div class="bsum-card"><div class="bsum-label">Margin maks</div><div class="bsum-val" style="color:#4ade80">${maxLabaPct}%</div><div class="bsum-sub">paket termurah</div></div>
-    ${rugCount > 0 ? `<div class="bsum-card" style="border-color:#f87171"><div class="bsum-label">Merugi</div><div class="bsum-val" style="color:#f87171">${rugCount} paket</div><div class="bsum-sub">di bawah HPP</div></div>` : ''}
-  </div>
-  <div class="bundle-divider"></div>
-  <table class="bundle-table">
-    <thead class="bt-head"><tr>
-      <th>Paket</th><th>HPP Tengah</th><th style="text-align:right">Laba / pcs</th>
-    </tr></thead>
-    <tbody>${tableRows}</tbody>
-  </table>`;
-  res.classList.add('show');
-}
-
-// =========================================
-// RENDER CATALOG
-// =========================================
-function renderCatalog() {
-  const root = document.getElementById('catalog-root');
-  let filtered = activeFilter === 'all' ? PACKAGES : PACKAGES.filter(p => p.rompi === activeFilter);
-
-  // apply sort by Tier 1 price (lowest tier as reference)
-  if (activeSort === 'asc') {
-    filtered = [...filtered].sort((a, b) => a.prices[0].jual - b.prices[0].jual);
-  } else if (activeSort === 'desc') {
-    filtered = [...filtered].sort((a, b) => b.prices[0].jual - a.prices[0].jual);
-  }
-
-  document.getElementById('count-label').textContent = filtered.length + ' paket';
-
-  let html = '';
-
-  if (activeSort !== 'default') {
-    // flat sorted grid — no grouping, show rompi label on each card
-    const sortLabel = activeSort === 'asc' ? '↑ Termurah ke Termahal' : '↓ Termahal ke Termurah';
-    html += `<div class="catalog-group-title">${sortLabel} · ${filtered.length} paket</div>`;
-    html += `<div class="catalog-grid">`;
-    filtered.forEach((p, idx) => { html += renderCard(p, idx, true); });
-    html += `</div>`;
-  } else {
-    // grouped by rompi
-    const grouped = {};
-    filtered.forEach(p => {
-      if (!grouped[p.rompi]) grouped[p.rompi] = [];
-      grouped[p.rompi].push(p);
-    });
-    Object.entries(grouped).forEach(([rNama, pkgs]) => {
-      if (activeFilter !== 'all') {
-        html += `<div class="catalog-grid">`;
-      } else {
-        html += `<div class="catalog-group-title">${rNama}</div><div class="catalog-grid">`;
-      }
-      pkgs.forEach((p, idx) => { html += renderCard(p, idx, false); });
-      html += `</div>`;
-    });
-  }
-
-  root.innerHTML = html;
-}
-
-function renderCard(p, idx, showRompiLabel = false) {
-  const isFeatured = p.recommended;
-  const cardId = `${p.rompi}-${p.idcard}-${p.holder}`.replace(/\s+/g,'_').replace(/[()]/g,'');
-
-  const tags = [`Rompi ${p.rompi}`, 'Lanyard 2 Sisi', p.idcard, p.holder];
-  const tagHtml = tags.map(t => `<span class="prod-tag">${t}</span>`).join('');
-
-  const priceHtml = p.prices.map(t => `
-    <button class="price-btn ${t.key}" onclick="openModal('${cardId}','${t.key}')">
-      <div class="pb-tier">${t.short}</div>
-      <div class="pb-qty">${t.qty} pcs</div>
-      <div class="pb-price">${fmtShort(t.jual)}</div>
-      <div class="pb-hint"><span>+${Math.round(t.markup*100)}%</span></div>
-    </button>
-  `).join('');
-
-  return `
-  <div class="prod-card ${isFeatured ? 'featured' : ''}">
-    <div class="featured-ribbon">Terpopuler</div>
-    <div class="prod-img-wrap">
-      <div class="prod-img-placeholder">
-        <div class="img-pattern"></div>
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-          <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
-          <polyline points="21 15 16 10 5 21"/>
-        </svg>
-        <span>FOTO PRODUK</span>
+  area.innerHTML = `
+    <div class="result-panel ${isGrosir ? 't4' : 't2'}">
+      <div class="result-top">
+        <div class="result-tier-label">
+          <span class="rtd" style="${tierDot}"></span>
+          ${tierText}
+          &nbsp;·&nbsp;<span style="color:var(--text3)">${total} bundle</span>
+        </div>
+        <div>
+          <div class="result-total-label">Total order</div>
+          <div class="result-total-num">${fmt(grand)}</div>
+        </div>
       </div>
-      <div class="img-badge">HPP ~${fmtShort(p.hppMid)}</div>
-      ${showRompiLabel ? `<div style="position:absolute;top:10px;left:10px;background:rgba(10,10,10,0.85);backdrop-filter:blur(8px);border:0.5px solid var(--border2);border-radius:99px;font-family:'DM Mono',monospace;font-size:10px;color:var(--text2);padding:3px 10px;">${p.rompi}</div>` : ''}
+      <div class="result-body">
+        ${lines}
+        ${upgradeHtml}
+        <div class="moq-bar-wrap">
+          <div class="moq-bar-label"><span>Progress MOQ</span><span>${total} / 12 bundle</span></div>
+          <div class="moq-bar-track"><div class="moq-bar-fill ${barClass}" style="width:${pct}%"></div></div>
+        </div>
+        ${moqBanner}
+
+        <!-- Panel Laba Bersih -->
+        <div style="margin-top:16px; padding:14px 16px; background:var(--bg4); border:1px solid var(--border); border-radius:var(--r-sm); display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text3); margin-bottom:4px;">Estimasi Laba Bersih</div>
+            <div style="font-size:11px; color:var(--text2);">Net Margin: <span style="color:var(--gold); font-weight:600;">${marginPct}%</span></div>
+          </div>
+          <div style="font-size:22px; color:var(--gold2); font-family:'Playfair Display',serif;">
+            ${fmt(profit)}
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="prod-body">
-      <div class="prod-name">${p.idcard} · ${p.holder}</div>
-      <div class="prod-sub">Rompi ${p.rompi} + Lanyard Full Print 2 Sisi</div>
-      <div class="prod-tags">${tagHtml}</div>
-      <div class="price-tiers">${priceHtml}</div>
-    </div>
-  </div>`;
-}
-
-// =========================================
-// MODAL
-// =========================================
-const PKG_MAP = {};
-PACKAGES.forEach(p => {
-  const key = `${p.rompi}-${p.idcard}-${p.holder}`.replace(/\s+/g,'_').replace(/[()]/g,'');
-  PKG_MAP[key] = p;
-});
-
-function openModal(cardId, tierKey) {
-  const p = PKG_MAP[cardId];
-  const t = p.prices.find(x => x.key === tierKey);
-  const tierIdx = TIERS.findIndex(x => x.key === tierKey);
-
-  const labaAvg = Math.round((t.labaMin + t.labaMax) / 2);
-  const labaPct = Math.round((labaAvg / p.hppMid) * 100);
-
-  // header
-  document.getElementById('modal-header').innerHTML = `
-    <div class="modal-eyebrow">${p.rompi} + Lanyard + ID Card + Holder</div>
-    <div class="modal-title">${p.idcard} · ${p.holder}</div>
-    <div class="modal-subtitle">Paket lengkap atribut mahasiswa</div>
   `;
-
-  // body
-  let body = '';
-
-  // selected price
-  body += `
-  <div class="price-selected">
-    <div class="ps-left">
-      <div class="ps-label">Harga Jual ${t.label}</div>
-      <div class="ps-price">${fmt(t.jual)}</div>
-    </div>
-    <span class="ps-badge ${t.key}">${t.short} · ${t.qty} pcs</span>
-  </div>`;
-
-  // breakdown
-  body += `<div class="breakdown-title">Rincian Komponen HPP</div>`;
-  body += `<div class="breakdown-table">`;
-
-  const rompiObj = ROMPI.find(r => r.nama === p.rompi);
-  const idObj = IDCARD.find(x => x.nama === p.idcard);
-  const hObj = HOLDER.find(x => x.nama === p.holder);
-
-  const items = [
-    { label: 'Rompi ' + p.rompi, sub: 'bahan utama', val: `${fmt(rompiObj.hppMin)}–${fmt(rompiObj.hppMax)}` },
-    { label: 'Lanyard Full Print 2 Sisi', sub: 'cetak custom', val: fmt(LANYARD_HPP) },
-    { label: 'ID Card ' + p.idcard, sub: 'cetak ID card', val: fmt(idObj.hpp) },
-    { label: p.holder, sub: 'aksesoris holder', val: fmt(hObj.hpp) },
-  ];
-
-  items.forEach(it => {
-    body += `<div class="breakdown-row">
-      <div><div class="br-label">${it.label}</div><div class="br-sub">${it.sub}</div></div>
-      <div class="br-val dim">${it.val}</div>
-    </div>`;
-  });
-
-  body += `<div class="breakdown-row total">
-    <div><div class="br-label">Total HPP (estimasi tengah)</div></div>
-    <div class="br-val dim">${fmt(p.hppMid)}</div>
-  </div>`;
-
-  body += `<div class="breakdown-row total" style="border-top: 0.5px solid #4ade8044;">
-    <div><div class="br-label">Laba per pcs</div></div>
-    <div class="br-val green">${fmt(t.labaMin)} – ${fmt(t.labaMax)}</div>
-  </div>`;
-  body += `</div>`;
-
-  // margin bar
-  body += `
-  <div class="margin-visual">
-    <div class="mv-row">
-      <div class="mv-label">Margin Laba atas HPP</div>
-      <div class="mv-pct" id="mv-pct">${labaPct}%</div>
-    </div>
-    <div class="mv-bar-wrap"><div class="mv-bar" id="mv-bar" style="width:0%"></div></div>
-    <div class="mv-compare">
-      ${TIERS.map((tier, i) => {
-        const tp = p.prices[i];
-        const tLabaAvg = Math.round((tp.labaMin + tp.labaMax) / 2);
-        const tPct = Math.round((tLabaAvg / p.hppMid) * 100);
-        return `<div class="mvc-item ${tier.key === tierKey ? 'mvc-active' : ''}">
-          <div class="mvc-pct">${tPct}%</div>
-          <div class="mvc-qty">${tier.label} · ${tier.qty}</div>
-        </div>`;
-      }).join('')}
-    </div>
-  </div>`;
-
-  // volume projection
-  body += `
-  <div class="vol-section">
-    <div class="breakdown-title" style="margin-top:20px; margin-bottom:12px;">Proyeksi Laba berdasarkan Volume</div>
-    <div class="vol-grid">
-      ${VOL_SCENARIOS.map(s => {
-        const vt = p.prices[s.tierIdx];
-        const vLabaAvg = Math.round((vt.labaMin + vt.labaMax) / 2) * s.qty;
-        const vOmzet = vt.jual * s.qty;
-        return `<div class="vol-card">
-          <div class="vc-qty">${s.qty} pcs</div>
-          <span class="vc-tier ${TIERS[s.tierIdx].key}">${TIERS[s.tierIdx].label}</span>
-          <div class="vc-laba">${fmtShort(vLabaAvg)}</div>
-          <div class="vc-omzet">omzet ${fmtShort(vOmzet)}</div>
-        </div>`;
-      }).join('')}
-    </div>
-  </div>`;
-
-  document.getElementById('modal-body').innerHTML = body;
-
-  // footer
-  document.getElementById('modal-footer').innerHTML = `
-    <button class="btn-wa" onclick="window.open('https://wa.me/6285117548027', '_blank'); closeModalDirect();">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.86L.072 23.928l6.195-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.805 9.805 0 01-5.064-1.41l-.364-.218-3.675.869.93-3.58-.237-.374A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-      Pesan via WA
-    </button>
-    <button class="btn-primary" onclick="closeModalDirect()">Tutup</button>
-  `;
-
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  // animate bar after open
-  setTimeout(() => {
-    const bar = document.getElementById('mv-bar');
-    if (bar) bar.style.width = Math.min(labaPct * 4, 100) + '%';
-  }, 100);
 }
 
-function closeModal(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+function toggleUpgrade(btn) {
+  const detail = btn.nextElementSibling;
+  const open = detail.classList.toggle('open');
+  btn.textContent = (open ? '▴' : '▾') + ' Lihat rincian selisih upgrade';
 }
-function closeModalDirect() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
-
-// =========================================
-// INIT
-// =========================================
-renderFilters();
-renderCatalog();
 </script>
 </body>
 </html>
